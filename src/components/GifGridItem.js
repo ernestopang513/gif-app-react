@@ -1,16 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const GifGridItem = ({id,title,url,category})=> {
+const GifGridItem = ({title,url,category = 'GIF'})=> {
 
     if(!title || title.trim() ==''){
         title = `${category.toUpperCase()} GIF`;
     }
-    // console.log(title)
+    
 
     
     return (
-        <div className = 'card animate__animated animate__rotateIn' id = {id}>
+        <div className = 'card animate__animated animate__rotateIn' >
             <a href = {url} target = '_blank'>
                 <img src= {url} alt={title}/>
             </a>
@@ -21,6 +21,9 @@ const GifGridItem = ({id,title,url,category})=> {
 }
 
 GifGridItem.propTypes = {
+    category: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired
 
 }
 
